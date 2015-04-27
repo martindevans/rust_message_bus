@@ -1,0 +1,4 @@
+[package]
+name = "message_bus"
+version = "0.1.0"
+authors = ["Martin Evans <martindevans@gmail.com>"]
