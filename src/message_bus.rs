@@ -32,7 +32,7 @@ impl<T> Bus<T> {
 
             //A set of buffers for messages in the future
             //Each buffer will be checked every 2^index ticks, messages are put into the farthest buffer possible
-            //This messages messages will be shuffled log2(number of ticks into the future) times
+            //This means messages will be shuffled roughly log2(number of ticks into the future) times
             buffers: [
                 Vec::<Message<T>>::new(),
                 Vec::<Message<T>>::new(),
@@ -156,9 +156,9 @@ fn check_messages_are_returned_at_correct_time() {
 
     //Send messages down bus, each message contains the time it should be received
     for i in 0 .. 1000 {
-        bus.sender.send(Message::<u64>::new(i as u64, i as u64));
-        bus.sender.send(Message::<u64>::new(i as u64, i as u64));
-        bus.sender.send(Message::<u64>::new(i as u64, i as u64));
+        bus.sender.send(Message::<u64>::new(i as u64, i as u64)).unwrap();
+        bus.sender.send(Message::<u64>::new(i as u64, i as u64)).unwrap();
+        bus.sender.send(Message::<u64>::new(i as u64, i as u64)).unwrap();
     }
 
     for i in 0 .. 1000 {

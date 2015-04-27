@@ -2,3 +2,7 @@
 name = "message_bus"
 version = "0.1.0"
 authors = ["Martin Evans <martindevans@gmail.com>"]
+repository = "https://github.com/martindevans/rust_message_bus"
+readme = "readme.md"
+license = "MIT"
+description = "A message bus which delays messages until a specified timestamp in the future"
